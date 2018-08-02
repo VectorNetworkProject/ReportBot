@@ -1,0 +1,29 @@
+{
+  "name": "reportbot",
+  "version": "1.0.0",
+  "description": "VectorNetwork用のDiscordbot",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/VectorNetworkProject/ReportBot.git"
+  },
+  "author": "VectorNetworkProject",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/VectorNetworkProject/ReportBot/issues"
+  },
+  "homepage": "https://github.com/VectorNetworkProject/ReportBot#readme",
+  "devDependencies": {
+    "eslint": "^5.2.0",
+    "eslint-plugin-import": "^2.13.0",
+    "eslint-plugin-node": "^7.0.1",
+    "eslint-plugin-promise": "^3.8.0"
+  },
+  "dependencies": {
+    "discord.js": "^11.3.2",
+    "dotenv": "^6.0.0"
+  }
+}
