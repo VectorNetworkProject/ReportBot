@@ -1,14 +1,15 @@
 const DiscordJS = require(`discord.js`)
+const http = require(`http`).createServer().listen(3000)
 const client = new DiscordJS.Client()
-const { parsed: Config } = require(`dotenv`).load()
 const Prefix = `v!`
+require(`dotenv`).config()
 client.on(`ready`, () => {
   console.log(`起動完了`)
 }).on(`message`, (msg) => {
   if (!msg.guild) return
   if (msg.author.bot) return
   if (!msg.content.startsWith(Prefix)) return
-  const [command, ...args] = msg.content.slice(Prefix.length).split(` `)
+  const [command] = msg.content.slice(Prefix.length).split(` `)
   switch (command) {
   case `report`:
     msg.delete()
@@ -24,6 +25,11 @@ client.on(`ready`, () => {
       msg.reply(`使い方: v!report <プレイヤーの名前> <理由>`)
     }
     break
+  case `ping`:
+    msg.reply(`Pong! ${Math.ceil(client.ping)}ms`)
+    break
   }
+}).on(`reconnecting`, () => {
+  console.log(`再接続`)
 })
-client.login(Config.TOKEN)
+client.login(process.env.TOKEN)
