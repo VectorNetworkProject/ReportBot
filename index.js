@@ -1,8 +1,9 @@
 const DiscordJS = require(`discord.js`)
-const http = require(`http`).createServer().listen(3000)
 const client = new DiscordJS.Client()
 const Prefix = `v!`
 require(`dotenv`).config()
+require(`http`).createServer().listen(3000)
+
 client.on(`ready`, () => {
   console.log(`起動完了`)
 }).on(`message`, (msg) => {
